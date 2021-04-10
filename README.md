@@ -1,7 +1,7 @@
 # TEST NODE.JS
 
 ## Sobre el test
-- Algo que me gusto del test fue la estructura de la base de datos muy bien estructura a detalle
+- Algo que me gusto del test fue la estructura de la base de datos muy bien estructurada a detalle
 para un correcto funcionamiento del manejo de informacion
 
 ## Retos Interesantes
