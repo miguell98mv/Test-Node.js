@@ -1,0 +1,27 @@
+include index
+
+block content
+
+    if message
+      div.boxFlex 
+        h1.message #{message}
+    if error
+      div.boxFlex 
+        h1.error #{error}
+    else 
+      div.boxFlex
+        form(action="/api/productos/update" method="POST" name="form" id="form" autocomplete="off")
+              input( type="text", placeholder="ProductID" name="productID" value=datos[0].ProductID) 
+              input( type="text", placeholder="ProductName" name="productName" value=datos[0].ProductName) 
+              input( type="text", placeholder="SupplierID" name="supplierID" value=datos[0].SupplierID) 
+              input( type="text", placeholder="CategoryID" name="categoryID" value=datos[0].CategoryID )
+              input( type="text", placeholder="QuantityPerUnit" name="quantityPerUnit" value=datos[0].QuantityPerUnit )
+              input( type="text", placeholder="UnitPrice" name="unitPrice" value=datos[0].UnitPrice)
+              input( type="text", placeholder="UnitsInStock" name="unitsInStock" value=datos[0].UnitsInStock)
+              input( type="text", placeholder="UnitsOnOrder" name="unitsOnOrder" value=datos[0].UnitsOnOrder)
+              input( type="text", placeholder="ReorderLevel" name="reorderLevel" value=datos[0].ReorderLevel)
+              input( type="text", placeholder="Discontinued" name="discontinued" value=datos[0].Discontinued)
+              input( type="button", id="submit" value="Actualizar" onclick="isEmpty()" )
+              input( type="submit", name="send" value="" hidden )
+          
+        script(src="/js/validationForm.js") 

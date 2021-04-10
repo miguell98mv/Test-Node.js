@@ -1,0 +1,56 @@
+include index
+
+block content
+
+    if error
+      div.boxFlex 
+        h1.error #{error}
+    else 
+      div.boxFlex
+        form(action="/api/products/" method="POST" name="form" id="form" autocomplete="off")
+          input(id="createProduct" type="button", value="Crear nuevo producto" onclick="change()")
+          div#changeClass.hidden 
+              input( type="text", placeholder="ProductID" name="productID" ) 
+              input( type="text", placeholder="ProductName" name="productName" ) 
+              input( type="text", placeholder="SupplierID" name="supplierID" ) 
+              input( type="text", placeholder="CategoryID" name="categoryID" )
+              input( type="text", placeholder="QuantityPerUnit" name="quantityPerUnit" )
+              input( type="text", placeholder="UnitPrice" name="unitPrice")
+              input( type="text", placeholder="UnitsInStock" name="unitsInStock" )
+              input( type="text", placeholder="UnitsOnOrder" name="unitsOnOrder" )
+              input( type="text", placeholder="ReorderLevel" name="reorderLevel" )
+              input( type="text", placeholder="Discontinued" name="discontinued" )
+              input( type="button", id="submit" value="Crear" onclick="isEmpty()" )
+              input( type="submit", name="send" value="" hidden )
+      div.boxFlex
+        table
+         
+          tr 
+            th ProductID
+            th ProductName
+            th SupplierID
+            th CategoryID
+            th QuantityPerUnit
+            th UnitPrice
+            th UnitsInStock
+            th UnitsOnOrder
+            th ReorderLevel
+            th Discontinued
+            th Editar
+          each dato in datos
+            tr
+              td #{ dato.ProductID }
+              td #{ dato.ProductName }
+              td #{ dato.SupplierID }
+              td #{ dato.CategoryID }
+              td #{ dato.QuantityPerUnit }
+              td #{ dato.UnitPrice }
+              td #{ dato.UnitsInStock }
+              td #{ dato.UnitsOnOrder }
+              td #{ dato.ReorderLevel }
+              td #{ dato.Discontinued }
+              td
+                a(href='/api/edit/'+dato.ProductID) editar
+
+      script(src="/js/changeClass.js")
+      script(src="/js/validationForm.js") 

@@ -1,0 +1,23 @@
+include index
+
+block content
+
+    if error
+      div.boxFlex 
+        h1.error #{error}
+    else 
+      div.boxFlex
+        table
+          tr 
+            th CategoryID 
+            th CategoryName
+            th Description
+            th Picture
+            th ProductID
+          each dato in datos
+            tr
+              td #{ dato.CategoryID }
+              td #{ dato.CategoryName }
+              td #{ dato.Description }
+              td BLOB
+              td #{ dato.ProductID }

@@ -1,0 +1,40 @@
+include index
+
+block content
+
+    if error
+      div.boxFlex 
+        h1.error #{error}
+    else 
+      div.boxFlex
+        table
+          tr 
+            th SupplierID  
+            th CompanyName
+            th ContactName
+            th ContactTitle
+            th Address
+            th City
+            th Region
+            th PostalCode
+            th Country
+            th Phone
+            th Fax
+            th HomePage
+            th Eliminar
+          each dato in datos
+           tr
+            td #{dato.SupplierID}
+            td #{dato.CompanyName}
+            td #{dato.ContactName}
+            td #{dato.ContactTitle}
+            td #{dato.Address}
+            td #{dato.City}
+            td #{dato.Region}
+            td #{dato.PostalCode}
+            td #{dato.Country}
+            td #{dato.Phone}
+            td #{dato.Fax}
+            td #{dato.HomePage}
+            th 
+              a(href="/api/deletedSuppliers/"+dato.SupplierID) eliminar

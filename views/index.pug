@@ -1,0 +1,21 @@
+extends layout 
+
+block content
+  div.boxTittle
+    h1.tittle Test de Node.js
+
+  div.boxFlex 
+    select(id="selection")
+      option(value="" selected) -- Apis -- 
+      option(value="api/products") api/products
+      option(value="api/search")  api/search
+      option(value="api/categories/:id/products")  api/categories/:id/products 
+      option(value="api/suppliers/:id")  api/suppliers/:id
+      option(value="api/suppliers/:id/products")  api/suppliers/:id/products
+
+    input(id="search" class="imputText" type="text" placeholder="Escribe aqui")
+    button#button Buscar
+  if error404
+  div.boxFlex 
+    h1.error #{error404}
+    script(src="/js/changeURL.js")
